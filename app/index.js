@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'expo-router';
-import { View, Text } from 'react-native';
-import { Link } from 'expo-router';
+import { View } from 'react-native';
 
 export default function WelcomeScreen() {
   const router = useRouter();
@@ -9,13 +8,13 @@ export default function WelcomeScreen() {
   useEffect(() => {
     setTimeout(() => {
       router.push('/screens/SignIn');
-    }, 2000);
+    }, 100);
   }, []);
 
   return (
     <View className="flex-1 items-center justify-center bg-white">
-        <Link href="/screens/SignIn">Continue</Link>
-        <Text className="text-3xl font-bold">Welcome Screen</Text>
+        {/* <Link href="/screens/SignIn">Continue</Link>
+        <Text className="text-3xl font-bold">Welcome Screen</Text> */}
       </View>
   );
 }
