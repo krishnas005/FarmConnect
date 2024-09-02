@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { useAuth } from '../context/auth-context';
 
+
 export default function RootLayout() {
   // const { userRole } = useAuth();
 
@@ -18,11 +19,15 @@ export default function RootLayout() {
 
       <Stack.Screen 
         name="screens/Register/index" 
-        options={{ title: 'Register', headerShown: true }} 
+        options={{ title: 'Register', headerShown: false }} 
       />
       <Stack.Screen 
         name="screens/FarmerRegister/index" 
-        options={{ title: 'Register as Farmer', headerShown: true }} 
+        options={{ title: 'Register as Farmer', headerShown: false }} 
+      />
+      <Stack.Screen 
+        name="screens/FarmerRegister/FarmLocation" 
+        options={{ title: 'Farm Location', headerShown: false }} 
       />
       <Stack.Screen 
         name="screens/CustomerRegister/index" 

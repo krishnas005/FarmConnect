@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'expo-router';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { Link } from 'expo-router';
 
 export default function WelcomeScreen() {
@@ -13,23 +13,9 @@ export default function WelcomeScreen() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.centeredContent}>
+    <View className="flex-1 items-center justify-center bg-white">
         <Link href="/screens/SignIn">Continue</Link>
-        <Text>Welcome Screen</Text>
+        <Text className="text-3xl font-bold">Welcome Screen</Text>
       </View>
-    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  centeredContent: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
