@@ -104,6 +104,7 @@ export default function LocationAccessScreen() {
         or: "or",
         pincode: "Pincode",
         village: "Village",
+        addressLine: 'Primary Address',
         city: "City",
         state: "State",
         continue: "Continue ➔"
@@ -114,6 +115,7 @@ export default function LocationAccessScreen() {
         autoDetect: "स्वतः मेरी स्थिति पहचानें",
         or: "या",
         pincode: "पिनकोड",
+        addressLine: 'पता',
         village: "गांव",
         city: "शहर",
         state: "राज्य",

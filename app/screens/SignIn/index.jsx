@@ -6,12 +6,11 @@ import { useRouter } from 'expo-router';
 import { useProfile } from "../../../context/ProfileContext";
 
 const SignInScreen = () => {
-  const { phoneNumber, setNumber, language, setLanguage } = useProfile(); // Using language from context
+  const { phoneNumber, setNumber, language, setLanguage } = useProfile();
   const [error, setError] = useState(null);
   const router = useRouter();
   const logo = require('../../../assets/images/logo.png');
 
-  // Text content based on language preference
   const textContent = {
     en: {
       greeting: 'Namaste!',
@@ -40,7 +39,7 @@ const SignInScreen = () => {
     <View className="flex-1 p-5 bg-white">
       <StatusBar hidden={true} />
 
-      <View className="absolute top-[70px] right-5 flex-row items-center">
+      {/* <View className="absolute top-[70px] right-5 flex-row items-center">
         <Text className="mr-2">Select Language:</Text>
         <RNPickerSelect
           onValueChange={(value) => setLanguage(value)}
@@ -67,7 +66,7 @@ const SignInScreen = () => {
           }}
           useNativeAndroidPickerStyle={false}
         />
-      </View>
+      </View> */}
 
       <View className="absolute top-6 left-4 flex-row items-center">
         <Image

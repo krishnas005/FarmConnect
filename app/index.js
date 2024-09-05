@@ -7,8 +7,8 @@ export default function WelcomeScreen() {
 
   useEffect(() => {
     setTimeout(() => {
-      router.push('/screens/SignIn');
-    }, 100);
+      router.push('/screens/LanguageSelect');
+    }, 10);
   }, []);
 
   return (

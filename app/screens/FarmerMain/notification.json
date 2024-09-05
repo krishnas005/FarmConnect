@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Reminder",
+    "description": "Refill your baigan",
+    "time": "13min",
+    "bgColor": "bg-blue-100",
+    "icon": "reminder"
+  },
+  {
+    "id": 2,
+    "title": "You have a new Message",
+    "description": "Hi cutiee",
+    "time": "1 hr",
+    "bgColor": "bg-blue-200",
+    "icon": "message"
+  },
+  {
+    "id": 3,
+    "title": "Order Confirmed",
+    "description": "Your order for farmer is confirmed",
+    "time": "1 hr",
+    "bgColor": "bg-green-100",
+    "icon": "order"
+  },
+  {
+    "id": 4,
+    "title": "New Scheme Alert",
+    "description": "Read this about the new scheme",
+    "time": "1 hr",
+    "bgColor": "bg-pink-100",
+    "icon": "scheme"
+  }
+]

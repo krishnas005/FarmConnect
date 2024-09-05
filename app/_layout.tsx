@@ -10,6 +10,14 @@ export default function RootLayout() {
           name="index"
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="screens/FarmerMain/HomeScreen/NearbyResources"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="screens/LanguageSelect/index"
+          options={{ headerShown: false }}
+        />
 
         <Stack.Screen
           name="screens/SignIn/index"
@@ -30,11 +38,11 @@ export default function RootLayout() {
         />
         <Stack.Screen
           name="screens/CustomerRegister/index"
-          options={{ title: 'Register as Customer', headerShown: true }}
+          options={{ title: 'Register as Customer', headerShown: false }}
         />
         <Stack.Screen
           name="screens/StorageWorkerRegister/index"
-          options={{ title: 'Register as Storage Worker', headerShown: true }}
+          options={{ title: 'Register as Storage Worker', headerShown: false }}
         />
 
         <Stack.Screen

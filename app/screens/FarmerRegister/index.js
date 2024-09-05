@@ -8,7 +8,7 @@ export default function FarmerRegister() {
   const logo = require('../../../assets/images/logo.png');
   const farmerIcon = require('../../../assets/images/farmerIcon.png');
 
-  const { farmerProfile, setFarmerProfile, phoneNumber, language } = useProfile(); // Include language from context
+  const { farmerProfile, setFarmerProfile, phoneNumber, language } = useProfile();
   const [error, setError] = useState(false);
   const [verifying, setVerifying] = useState(false);
   const [verified, setVerified] = useState(false);
