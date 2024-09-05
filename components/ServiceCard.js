@@ -1,15 +1,41 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-
-
-const ServiceCard = ({ title, description, imageUrl }) => {
+const ServiceCard = ({ title, description, image, bgColor, link, navigation }) => {
   return (
-    <View className="bg-white p-4 rounded-lg shadow-md mb-4 w-44">
-      <Image source={{ uri: imageUrl }} className="w-full h-24 rounded-md" />
-      <Text className="mt-2 text-lg font-bold">{title}</Text>
-      <Text className="text-sm text-gray-600">{description}</Text>
-    </View>
+    <TouchableOpacity onPress={() => navigation.navigate(link)}>
+      <View style={{
+        backgroundColor: bgColor,
+        padding: 16,
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 5,
+        marginBottom: 16,
+        flex: 1, 
+        maxWidth: 180, 
+        alignItems: 'center',  
+      }}>
+        <Image source={image} style={{
+          width: 50,   
+          height: 50,  
+          borderRadius: 8,
+        }} />
+        <Text style={{
+          textAlign: 'center', 
+          marginTop: 8,
+          fontSize: 14,
+          flexWrap: 'wrap',
+          fontWeight: 'bold'
+        }}>{title}</Text>
+        {/* <Text style={{
+          fontSize: 14,
+          color: '#666',
+        }}>{description}</Text> */}
+      </View>
+    </TouchableOpacity>
   );
 };
 

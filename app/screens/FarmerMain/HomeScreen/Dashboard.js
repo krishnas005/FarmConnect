@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { PieChart, BarChart } from 'react-native-chart-kit';
 
-const DashboardScreen = () => {
+const DashboardScreen = ({navigation}) => {
   const screenWidth = Dimensions.get('window').width;
 
   const pieChartData = [
@@ -24,17 +24,17 @@ const DashboardScreen = () => {
   return (
     <ScrollView className="flex-1 bg-white">
       <View className="p-4">
-        <View className="flex-row items-center">
-          <TouchableOpacity>
+        <View className="flex-row items-center ml-2">
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Image
               source={require("../../../../assets/images/backIcon.png")}
               className="w-8 h-4"
             />
-          </TouchableOpacity>
-          <Text className="text-black text-2xl font-bold ml-2">Dashboard</Text>
+          </TouchableOpacity> */}
+          <Text className="text-black text-3xl font-bold ">Dashboard</Text>
         </View>
 
-        <Text className="text-gray-600 mt-2">Chatgot se likhlena</Text>
+        <Text className="text-gray-600 text-lg ml-2">Manage all the information in one place!</Text>
 
         {/* Balance and Income Summary */}
         <View className="mt-4 flex-row flex-wrap justify-between">

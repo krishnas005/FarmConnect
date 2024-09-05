@@ -1,136 +1,99 @@
-import React, { useState } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import React from 'react';
+import { View, Text, TouchableOpacity, Image, FlatList, TextInput } from 'react-native';
 
-const sampleData = {
-  mandi: [
-    { id: 1, name: 'Krishna Nagar Mandi', date: 'Friday, May 11, 2021', location: { latitude: 28.688, longitude: 77.288 }, area: 'Krishna Nagar' },
-    { id: 2, name: 'Rohini Mandi', date: 'Saturday, May 12, 2021', location: { latitude: 28.567, longitude: 77.344 }, area: 'Rohini' },
-  ],
-  transport: [
-    { id: 1, name: 'Krishna Nagar Transport Hub', date: 'Friday, May 11, 2021', location: { latitude: 28.688, longitude: 77.288 }, area: 'Krishna Nagar' },
-    { id: 2, name: 'Rohini Transport', date: 'Saturday, May 12, 2021', location: { latitude: 28.567, longitude: 77.344 }, area: 'Rohini' },
-  ]
-};
+const shops = [
+  {
+    id: '1',
+    name: 'Green Thumb Supplies',
+    category: 'Seeds, Fertilizers',
+    contact: 'John Smith, 555-1234',
+    image: require('../../../../assets/images/resources1.jpg'),
+  },
+  {
+    id: '2',
+    name: 'AgriWorld',
+    category: 'Tools, Seeds',
+    contact: 'Emily Johnson, 555-5678',
+    image: require('../../../../assets/images/resources2.jpg'),
+  },
+  {
+    id: '3',
+    name: 'Farmers’ Haven',
+    category: 'Fertilizers, Tools',
+    contact: 'Michael Brown, 555-8765',
+    image: require('../../../../assets/images/resources3.jpg'),
+  },
+  {
+    id: '4',
+    name: 'GrowMore',
+    category: 'Seeds, Tools',
+    contact: 'Sarah Davis, 555-4321',
+    image: require('../../../../assets/images/resources4.jpg'),
+  },
+  {
+    id: '5',
+    name: 'Harvest Hub',
+    category: 'Fertilizers, Seeds',
+    contact: 'David Wilson, 555-6789',
+    image: require('../../../../assets/images/resources5.jpg'),
+  },
+  {
+    id: '6',
+    name: 'EcoAgri Store',
+    category: 'Tools, Fertilizers',
+    contact: 'Emma Thompson, 555-3456',
+    image: require('../../../../assets/images/resources6.jpg'),
+  },
+];
 
-const App = () => {
-  const [selectedOption, setSelectedOption] = useState('mandi');
+const ShopsList = ({ navigation }) => {
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      className="flex-row items-center p-4 mb-2 bg-white rounded-lg shadow-sm"
+      onPress={() => navigation.navigate('ShopDetails', { shopId: item.id })}
+    >
+      <Image source={item.image} className="w-12 h-12 rounded-full mr-4" />
+      <View className="flex-1">
+        <Text className="text-gray-900 font-bold">{item.name}</Text>
+        <Text className="text-gray-600 text-sm">{item.category}</Text>
+        <Text className="text-gray-500 text-xs">{item.contact}</Text>
+      </View>
+      <View>
+        <Image source={require('../../../../assets/images/farmerIcon.png')} className="w-4 h-4" />
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.innerContainer}>
-        {/* Header */}
-        <Text style={styles.headerText}>Nearby Resources</Text>
-        <Text style={styles.subHeaderText}>Find nearest {selectedOption}</Text>
-        
-        {/* Options */}
-        <View style={styles.optionContainer}>
-          {['mandi', 'transport', 'option3'].map((option) => (
-            <TouchableOpacity
-              key={option}
-              style={[
-                styles.optionButton,
-                selectedOption === option ? styles.selectedOptionButton : styles.unselectedOptionButton
-              ]}
-              onPress={() => setSelectedOption(option)}
-            >
-              <Text style={selectedOption === option ? styles.selectedOptionText : styles.unselectedOptionText}>
-                {option.charAt(0).toUpperCase() + option.slice(1)}
-              </Text>
-            </TouchableOpacity>
-          ))}
+    <View className="flex-1 bg-gray-100">
+      <View className="p-4">
+      <View className="flex-row items-center">
+          {/* <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Image
+              source={require("../../../../assets/images/backIcon.png")}
+              className="w-8 h-4"
+            />
+          </TouchableOpacity> */}
+          <Text className="text-gray-900 text-2xl font-bold ">Find Nearby Subsidy Resources</Text>
         </View>
-        
-        {/* List of Resources */}
-        <ScrollView style={styles.scrollView}>
-          {sampleData[selectedOption]?.map((item) => (
-            <View key={item.id} style={styles.card}>
-              <MapView
-                style={styles.map}
-                initialRegion={{
-                  latitude: item.location.latitude,
-                  longitude: item.location.longitude,
-                  latitudeDelta: 0.01,
-                  longitudeDelta: 0.01,
-                }}
-              >
-                <Marker coordinate={item.location} title={item.name} />
-              </MapView>
-              <Text style={styles.cardTitle}>{item.name}</Text>
-              <Text style={styles.cardDate}>{item.date}</Text>
-              <Text style={styles.cardArea}>{item.area}</Text>
-            </View>
-          ))}
-        </ScrollView>
+        <Text className="text-gray-600 text-sm mt-1">
+          Browse through our list of trusted suppliers to find the resources you need to support your farming business.
+        </Text>
       </View>
-    </SafeAreaView>
+      <View className="p-4">
+        <TextInput
+          placeholder="Search for resources..."
+          className="bg-gray-200 p-3 rounded-full text-sm"
+        />
+      </View>
+      <FlatList
+        data={shops}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={{ paddingBottom: 16 }}
+      />
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  innerContainer: {
-    padding: 16,
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  subHeaderText: {
-    fontSize: 14,
-    color: 'gray',
-    marginBottom: 16,
-  },
-  optionContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 16,
-  },
-  optionButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-  },
-  selectedOptionButton: {
-    backgroundColor: 'green',
-  },
-  unselectedOptionButton: {
-    backgroundColor: 'lightgray',
-  },
-  selectedOptionText: {
-    color: 'white',
-  },
-  unselectedOptionText: {
-    color: 'black',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  card: {
-    backgroundColor: '#f0f0f0',
-    padding: 16,
-    borderRadius: 10,
-    marginBottom: 16,
-  },
-  map: {
-    height: 200, // Make sure to define height for the MapView
-    width: '100%',
-    borderRadius: 10,
-  },
-  cardTitle: {
-    fontWeight: 'bold',
-    marginTop: 8,
-  },
-  cardDate: {
-    color: 'gray',
-  },
-  cardArea: {
-    color: 'green',
-  },
-});
-
-export default App;
+export default ShopsList;

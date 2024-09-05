@@ -2,7 +2,53 @@ import React from 'react';
 import { View, ScrollView, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Navbar from '../../../../components/Navbar';
 import Carousel from '../../../../components/Carousel';
-import ServiceCard from '../../../../components/ServiceCard'; 
+import ServiceCard from '../../../../components/ServiceCard';
+import OtherServices from '../../../../components/OtherServices';
+
+const services = [
+  {
+    title: 'My Dashboard',
+    description: ' ',
+    image: require('../../../../assets/images/servicesIcon.png'),
+    color: '#90EE90',
+    link: 'Dashboard' 
+  },
+  {
+    title: 'Nearby Storage',
+    description: ' ',
+    image: require('../../../../assets/images/servicesIcon3.png'),
+    color: '#E8F7FC',
+    link: 'NearbyResources' 
+  },
+  {
+    title: 'Sell Your Produce',
+    description: ' ',
+    image: require('../../../../assets/images/servicesIcon2.png'),
+    color: '#90EE90',
+    link: 'CropListing' 
+  },
+  {
+    title: 'Schemes for me',
+    description: ' ',
+    image: require('../../../../assets/images/servicesIcon4.png'),
+    color: '#90EE90',
+    link: 'Schemes' 
+  },
+  {
+    title: 'Contract Farming',
+    description: ' ',
+    image: require('../../../../assets/images/servicesIcon5.png'),
+    color: '#E8F7FC',
+    link: 'ContractOpportunity' 
+  },
+  {
+    title: 'AI Rate Prediction',
+    description: ' ',
+    image: require('../../../../assets/images/servicesIcon6.png'),
+    color: '#90EE90',
+    link: 'RatePrediction' 
+  },
+];
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -11,30 +57,51 @@ const HomeScreen = ({ navigation }) => {
       <ScrollView style={styles.scrollView}>
         <Carousel />
         <View style={styles.serviceContainer}>
-          {[1, 2, 3, 4, 5, 6].map((service) => (
-            <View style={styles.serviceWrapper} key={service}>
+          {services.map((service, index) => (
+            <View style={styles.serviceWrapper} key={index}>
               <ServiceCard
-                title={`Service ${service}`}
-                description={`Description for service ${service}`}
-                imageUrl={`https://via.placeholder.com/150`}
+                title={service.title}
+                description={service.description}
+                image={service.image}
+                bgColor={service.color}
+                link={service.link}
+                navigation={navigation} 
               />
             </View>
           ))}
         </View>
 
-        <TouchableOpacity 
+        {/* <TouchableOpacity 
           style={styles.nearbyCard} 
           onPress={() => navigation.navigate('Dashboard')} 
         >
           <Image 
-            source={{ uri: 'https://via.placeholder.com/300x150' }} 
+            source={require('../../../../assets/images/NearbyServices.png')} 
             style={styles.nearbyImage} 
           />
           <Text style={styles.nearbyTitle}>Find Nearby Services</Text>
           <Text style={styles.nearbyDescription}>
             Search for services around you and get directions!
           </Text>
+        </TouchableOpacity> */}
+
+      
+        <TouchableOpacity 
+          style={styles.nearbyCard} 
+          onPress={() => navigation.navigate('Schemes')} 
+        >
+          <Image 
+            source={require('../../../../assets/images/farmerSlider/img3.jpg')} 
+            style={styles.nearbyImage} 
+          />
+          <Text style={styles.nearbyTitle}>Explore Government Schemes</Text>
+          <Text style={styles.nearbyDescription}>
+            Search for the best government schemes!
+          </Text>
         </TouchableOpacity>
+
+        <OtherServices navigation={navigation} />
+
       </ScrollView>
     </View>
   );
