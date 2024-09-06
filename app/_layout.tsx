@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import AppProvider from '../context/provider';
 
 const defaultScreenOptions = {
-  headerShown: false,
+  headerShown: false, // Hides the header for all screens
 };
 
 export default function RootLayout() {
@@ -14,12 +14,10 @@ export default function RootLayout() {
           name="screens/LanguageSelect/index"
           options={defaultScreenOptions}
         />
-
         <Stack.Screen
           name="screens/SignIn/index"
           options={defaultScreenOptions}
         />
-
         <Stack.Screen
           name="screens/Register/index"
           options={{ title: 'Register', ...defaultScreenOptions }}
@@ -33,6 +31,14 @@ export default function RootLayout() {
           options={{ title: 'Farm Location', ...defaultScreenOptions }}
         />
         <Stack.Screen
+          name="screens/CustomerRegister/CustomerLocation"
+          options={{ title: 'Customer Location', ...defaultScreenOptions }}
+        />
+        <Stack.Screen
+          name="screens/StorageWorkerRegister/WorkerLocation"
+          options={{ title: 'Worker Location', ...defaultScreenOptions }}
+        />
+        <Stack.Screen
           name="screens/CustomerRegister/index"
           options={{ title: 'Register as Customer', ...defaultScreenOptions }}
         />
@@ -41,6 +47,11 @@ export default function RootLayout() {
           options={{ title: 'Register as Storage Worker', ...defaultScreenOptions }}
         />
 
+        {/* Screens with no back navigation and no header */}
+        <Stack.Screen
+          name="screens/FarmerMain/index"
+          options={defaultScreenOptions}
+        />
         <Stack.Screen
           name="screens/CustomerMain/index"
           options={defaultScreenOptions}

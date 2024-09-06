@@ -27,7 +27,7 @@ const Navbar = ({ toggleDrawer }) => {
         </View>
 
         <View className="">
-          <TouchableOpacity onPress={() => navigation.navigate('profile')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
             <Image
             source={profileIcon}
             className="w-9 mr-1"

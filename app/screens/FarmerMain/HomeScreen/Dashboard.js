@@ -89,7 +89,7 @@ const DashboardScreen = ({navigation}) => {
 
         {/* Best Sellers (Pie Chart) */}
         <View className="mt-6">
-          <Text className="text-lg font-semibold">Best Sellers</Text>
+          <Text className="text-lg font-semibold">Best Buyers</Text>
           <View className="mt-4 p-4 bg-white border rounded-lg shadow-sm">
             <PieChart
               data={pieChartData}
@@ -110,7 +110,7 @@ const DashboardScreen = ({navigation}) => {
         {/* My Expenses (Bar Chart) */}
         <View className="mt-6">
           <Text className="text-lg font-semibold">My Expenses</Text>
-          <View className="mt-4 p-4 bg-white border rounded-lg shadow-sm">
+          {/* <View className="mt-4 p-4 bg-white border rounded-lg shadow-sm">
             <BarChart
               data={barChartData}
               width={screenWidth - 32}
@@ -133,7 +133,11 @@ const DashboardScreen = ({navigation}) => {
               }}
               verticalLabelRotation={30}
             />
-          </View>
+          </View> */}
+          <Image 
+          source={require("../../../../assets/images/expenseChart.png")} 
+          className="w-90 h-80 mt-2 contain ml-6"
+          />
         </View>
       </View>
     </ScrollView>

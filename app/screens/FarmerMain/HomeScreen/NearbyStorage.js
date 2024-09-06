@@ -5,38 +5,38 @@ import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 const storageData = [
   {
     id: '1',
-    name: 'Cold Storage Hub A',
+    name: 'Harish Nagar Cold Storage',
     location: 'Krishna Nagar',
     distance: '2 km',
-    image: require('../../../../assets/images/resources6.jpg'),
+    image: require('../../../../assets/images/map.png'),
   },
   {
     id: '2',
-    name: 'Cold Storage Hub B',
+    name: 'Jhansi Ki Rani Cold Storage',
     location: 'Sector 5',
     distance: '5 km',
-    image: require('../../../../assets/images/resources6.jpg'),
+    image: require('../../../../assets/images/map.png'),
   },
   {
     id: '3',
-    name: 'Cold Storage Hub C',
+    name: 'New Mandi Cold Storage',
     location: 'Laxmi Nagar',
     distance: '8 km',
-    image: require('../../../../assets/images/resources6.jpg'),
+    image: require('../../../../assets/images/map.png'),
   },
   {
     id: '4',
-    name: 'Cold Storage Hub D',
+    name: 'Bhagomajra Cold Storage',
     location: 'Preet Vihar',
     distance: '12 km',
-    image: require('../../../../assets/images/resources6.jpg'),
+    image: require('../../../../assets/images/map.png'),
   },
   {
     id: '5',
-    name: 'Cold Storage Hub E',
+    name: 'Kharar Cold Storage',
     location: 'Dwarka',
     distance: '15 km',
-    image: require('../../../../assets/images/resources6.jpg'),
+    image: require('../../../../assets/images/map.png'),
   },
 ];
 

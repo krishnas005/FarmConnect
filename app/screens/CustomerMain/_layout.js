@@ -3,18 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image, View } from 'react-native';
 
 import HomeScreen from "./HomeScreen/index.js";
-import NearbyServices from "./HomeScreen/NearbyResources.js"
-import DashboardScreen from "./HomeScreen/Dashboard.js";
-import NearbyResources from "./HomeScreen/NearbyStorage.js";
-import GovernmentSchemes from "./HomeScreen/Schemes.js";
-import PredictedRateScreen from "./HomeScreen/RatePrediction.js";
-import ContractOpportunities from "./HomeScreen/ContractFarming.js";
-import CropListing from "./HomeScreen/SellProduce.js";
 
-import NotificationScreen from "./NotificationScren.js";
+import NotificationScreen from "./NotificationScreen.js";
 import FAQScreen from "./FAQScreen";
 import ProfileScreen from "./ProfileScreen";
-import WeatherScreen from "./HomeScreen/WeatherInfo.js";
+import BuyFromFarmers from "./HomeScreen/BuyFromFarmer.js";
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -23,14 +16,8 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Dashboard" component={DashboardScreen} />
-      <HomeStack.Screen name="NearbyServices" component={NearbyServices} />
-      <HomeStack.Screen name="NearbyResources" component={NearbyResources} />
-      <HomeStack.Screen name="Schemes" component={GovernmentSchemes} />
-      <HomeStack.Screen name="ContractOpportunity" component={ContractOpportunities} />
-      <HomeStack.Screen name="CropListing" component={CropListing} />
-      <HomeStack.Screen name="RatePrediction" component={PredictedRateScreen} />
-      <HomeStack.Screen name="WeatherScreen" component={WeatherScreen} />
+      <HomeStack.Screen name="BuyFromFarmers" component={BuyFromFarmers} />
+
     </HomeStack.Navigator>
   );
 }
